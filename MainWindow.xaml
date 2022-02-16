@@ -1,0 +1,54 @@
+﻿<Window x:Class="AtDrive_Assignment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AtDrive_Assignment"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="grid">
+        <StackPanel Orientation = "Horizontal">
+
+            <TextBox HorizontalAlignment="Left" Height="26" Margin="27,18,0,0" TextWrapping="Wrap"
+                Text="select Main Image" VerticalAlignment="Top" Width="118" Name="bgTextBox"/>
+            <Button x:Name="BackgroundBrowse" Content="Browse a file" HorizontalAlignment="Left"   
+                Margin="1,18,0,0" VerticalAlignment="Top" Width="111" 
+                RenderTransformOrigin="1.047,0.821" Height="26"/>
+
+            <TextBox HorizontalAlignment="Left" Height="26" Margin="27,18,0,0" TextWrapping="Wrap"   
+                Text="select sub Image" VerticalAlignment="Top" Width="118" x:Name="fgTextBox" TextAlignment="Left"/>
+            <Button x:Name="ForgroundBrows" HorizontalAlignment="Left"  Content="Browse a file"   Margin="1,18,0,0"  Width="111" 
+                RenderTransformOrigin="1.047,0.821" VerticalAlignment="Top" Height="26"/>
+
+            <Button x:Name="Load" HorizontalAlignment="Left" Content="Load" Width="80" Height="26" VerticalAlignment="Top"  Margin="10,18,0,0" Click="LoadButton_Click" />
+        </StackPanel>
+
+        <Canvas x:Name="playCanvas" Margin="20,60,200,20">
+            <Image Name="bgImg" Source="/Playground.png" Width="529" Height="352"/>
+            <Image x:Name="ballImg" Height="55" Width="55" Source="/Football.png" Canvas.Bottom="200" Canvas.Left="200"/>
+        </Canvas>
+
+
+        <Border  BorderThickness = "1"  BorderBrush = "black"  Background = "LightGray"  HorizontalAlignment = "Left"  Width = "180" Margin="620,0,0,0" >
+            <StackPanel Orientation = "Vertical" HorizontalAlignment="Right" >
+                <Label x:Name="Label1"  Content="Distance " Margin="50,8,10,0" Width="200" Height="40" />
+                <TextBox Height="26"  Width="118" Margin="27,1,1,10" Text="0"  x:Name="SpeedXTextBox"  />
+
+                <Label x:Name="Label2"  Content="Height " Margin="50,8,10,0" Width="200" Height="40" />
+                <TextBox   Height="26"  Width="118" Margin="27,1,1,10" Text="290"  x:Name="SpeedYTextBox" />
+
+                <Label x:Name="Label3"  Content="speed  " Margin="50,8,10,0" Width="200" Height="40" />
+                <!--<TextBox Height="26"  Width="118" Margin="27,1,1,10"  x:Name="SpeedComboBox"/>-->
+
+                <ComboBox x:Name="SpeedComboBox" Height="26"  Width="118" Margin="27,1,1,10" SelectionChanged="SpeedComboBox_SelectionChanged" SelectedIndex="1" >
+                    <ComboBoxItem>Slow</ComboBoxItem>
+                    <ComboBoxItem>Medium</ComboBoxItem>
+                    <ComboBoxItem>Fast</ComboBoxItem>
+                </ComboBox>
+
+                <Button x:Name="btnStart" HorizontalAlignment="Center" Content="Start" Width="80" Height="26" VerticalAlignment="Top"  Margin="10,18,0,0"/>
+                <Button x:Name="Save" HorizontalAlignment="Center" Content="Save as gif" Width="80" Height="26" VerticalAlignment="Top"  Margin="10,18,0,0"></Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

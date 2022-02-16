@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Football.png" />
+    <None Remove="Playground.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Football.png" />
+    <Resource Include="Playground.png" />
+  </ItemGroup>
+
+</Project>
