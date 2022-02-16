@@ -48,7 +48,7 @@ namespace AtDrive_Assignment
             ForgroundBrows.Click += BrowseFile;
 
             btnStart.Click += OnStartClick;
-
+            btnStart.Click += LoadButton_Click;
             CompositionTarget.Rendering += Update;
         }
 
@@ -59,15 +59,16 @@ namespace AtDrive_Assignment
             currentFram = 0;
             currentHeight = 0;
 
-            Console.WriteLine("Canvas:" + playCanvas.ActualWidth + " He: " + playCanvas.ActualHeight);
+            Console.WriteLine("Canvas:" + bgImg.ActualWidth + " He: " + bgImg.ActualHeight);
 
             if(isImageLoaded)
             takeImage = true;
+           
         }
 
         private void Update(object sender, EventArgs e)
         {
-            Console.WriteLine("Update Frame");
+           
             if (takeImage)
             {
                 Console.WriteLine("Taken ----------------------------");
@@ -84,6 +85,7 @@ namespace AtDrive_Assignment
                     saveStream.Close();
                     takeImage = false;
                 }
+               
             }
         }
 
@@ -96,8 +98,8 @@ namespace AtDrive_Assignment
             Console.WriteLine("Height: " + currentHeight);
             Canvas.SetBottom(ballImg, currentHeight);
 
-            var rtb = new RenderTargetBitmap((int)(playCanvas.ActualWidth*1.5), (int)(playCanvas.ActualHeight*1.5), 96, 96, PixelFormats.Pbgra32);
-            rtb.Render(playCanvas);
+            var rtb = new RenderTargetBitmap((int)(bgImg.ActualWidth*1.5), (int)(bgImg.ActualHeight*1.5), 96, 96, PixelFormats.Pbgra32);
+            rtb.Render(bgImg);
 
             BitmapFrame singleFrame = BitmapFrame.Create(rtb);
 
@@ -135,11 +137,12 @@ namespace AtDrive_Assignment
                 ImageBrush Mainbrush = new ImageBrush();
                 ImageBrush Innerbrush = new ImageBrush();
                 Mainbrush.ImageSource = new BitmapImage(new Uri(@backgroundImageName, UriKind.Relative));
-                playCanvas.Background = Mainbrush;
+                bgImg.Background = Mainbrush;
+                //bgImg.Source = 
 
                 Innerbrush.ImageSource = new BitmapImage(new Uri(@forgroundImageName, UriKind.Relative));
-                ballImg.Source = ;
-
+                //  bgImg.Source = new BitmapImage(new Uri(@backgroundImageName, UriKind.Relative)); 
+                ballImg.Fill = Innerbrush;
                 isImageLoaded = true;
             }
             else

@@ -20,12 +20,20 @@
             <Button x:Name="ForgroundBrows" HorizontalAlignment="Left"  Content="Browse a file"   Margin="1,18,0,0"  Width="111" 
                 RenderTransformOrigin="1.047,0.821" VerticalAlignment="Top" Height="26"/>
 
-            <Button x:Name="Load" HorizontalAlignment="Left" Content="Load" Width="80" Height="26" VerticalAlignment="Top"  Margin="10,18,0,0" Click="LoadButton_Click" />
+            <Button x:Name="Load" HorizontalAlignment="Left" Content="Load" Width="0" Height="0" VerticalAlignment="Top"  Margin="10,18,0,0" Click="LoadButton_Click" />
         </StackPanel>
 
-        <Canvas x:Name="playCanvas" Margin="20,60,200,20">
-            <Image Name="bgImg" Source="/Playground.png" Width="529" Height="352"/>
-            <Image x:Name="ballImg" Height="55" Width="55" Source="/Football.png" Canvas.Bottom="200" Canvas.Left="200"/>
+        <!--<Canvas x:Name="playCanvas" Margin="20,60,200,20">
+            <Image Name="bgImg"  Width="529" Height="352"/>
+            <Image x:Name="ballImg" Height="55" Width="55" Canvas.Bottom="200" Canvas.Left="200"/>
+        </Canvas>-->
+
+        <Canvas Name="bgImg"  Width = "590" Height = "360" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,10,0,0">
+
+            <Rectangle Name="ballImg" Width="50" Height="50" StrokeThickness="0" Canvas.Bottom="200" Canvas.Left="200" RenderTransformOrigin="0.5,0.5" >
+
+            </Rectangle>
+
         </Canvas>
 
 
@@ -46,8 +54,8 @@
                     <ComboBoxItem>Fast</ComboBoxItem>
                 </ComboBox>
 
-                <Button x:Name="btnStart" HorizontalAlignment="Center" Content="Start" Width="80" Height="26" VerticalAlignment="Top"  Margin="10,18,0,0"/>
-                <Button x:Name="Save" HorizontalAlignment="Center" Content="Save as gif" Width="80" Height="26" VerticalAlignment="Top"  Margin="10,18,0,0"></Button>
+                <Button x:Name="btnStart" HorizontalAlignment="Center" Content="Load and Save" Width="80" Height="26" VerticalAlignment="Top"  Margin="10,18,0,0"/>
+                <Button x:Name="Save" HorizontalAlignment="Center" Content="Save as gif" Width="0" Height="0" VerticalAlignment="Top"  Margin="10,18,0,0"></Button>
             </StackPanel>
         </Border>
     </Grid>
